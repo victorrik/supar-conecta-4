@@ -1,12 +1,17 @@
-import { useState } from 'react'
-import { Route } from 'wouter'
-import Game from './screens/Game'
+// @ts-check
+import { Route } from 'wouter';
+import Home from './screens/Home';
+import LocalGame from './screens/LocalGame';
+import OnlineGame from './screens/OnlineGame';
+ 
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function App() { 
   return (
-    <Route path="/" component={Game} />
+    <>
+			<Route path="/" component={Home} />
+			<Route path="/online" component={OnlineGame} />
+			<Route path="/local" component={LocalGame} />
+		</>
   )
 }
 
