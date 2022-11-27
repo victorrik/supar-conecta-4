@@ -1,7 +1,7 @@
 {
   "name": "supar-conecta-4",
   "private": true,
-  "version": "0.0.1-pr1",
+  "version": "0.0.1-pr2",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
