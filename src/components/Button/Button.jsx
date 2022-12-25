@@ -2,11 +2,6 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 import ActivityIndicator from "../ActivityIndicator";
 
- 
- 
- 
-
-
 
 /**
  * TypesStyles {

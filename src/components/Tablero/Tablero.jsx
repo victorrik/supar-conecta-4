@@ -172,9 +172,36 @@ const Tablero = forwardRef((/**  @type {{currentPlayer:any,callbackMove:any}}  *
 	}
 	const resetTheBoard = () => { 
 		setTablero(Array(6).fill(0).map(()=>Array(7).fill(0)))
-	 }
+	}
+
+	/**
+	 * 
+	 * @param {boolean} showHide 
+	 */
+	const handleColumn = (showHide) => { 
+		const column = document.getElementById("p-hover");
+		if (column) {
+			if (showHide) {
+				setTimeout(() => {
+					column.style.opacity = "1"
+				}, 100);
+			}else{
+				column.style.opacity = "0"
+
+			}
+		}
+		// for (let i = 0; i < 6; i++) {
+		// 	document.getElementById(`${i}-${x}`)?.classList.toggle("bg-blue-chill-500")
+		// }
+	}
 	return (
-		<div className='grid grid-cols-7 bg-blue-chill-600 rounded-lg overflow-hidden' >
+		<div className='grid grid-cols-7 relative bg-blue-chill-600 rounded-lg overflow-hidden' 
+			onMouseEnter={()=>handleColumn(true)}
+			onMouseLeave={()=>handleColumn(false)}
+		>
+			<div id={`p-hover`} 
+				className='absolute h-full w-13 md:w-24 bg-blue-chill-500 transition-all opacity-0' 
+			/>
 				{tablero.map((arr,indexY)=>
 					arr.map((subArr,indexX)=>
 						<Ficha key={""+indexY+indexX}

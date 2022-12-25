@@ -1,3 +1,10 @@
+## 0.0.1-pr3 - 24-12-2022
+- Se siguio modificando los estilos y se empezo a ver como hacer el subdomino
+
+### Added
+- Se agregaron hooks para identificar el tipo de pantalla
+- Se hizo pantalla para subir y probar el subdominio
+
 ## 0.0.1-pr2 - 26-11-2022
 
 ### Added

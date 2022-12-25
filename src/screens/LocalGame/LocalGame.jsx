@@ -40,14 +40,10 @@ const LocalGame= () =>{
 
 	
 	return (
-		<main className='flex item-center justify-center bg-slate-400 w-screen h-screen' >
-			<div className='p-5 md:p-10 w-full max-w-4xl bg-slate-800 flex flex-1' >
-				<header>
-
-				</header>
-				<div className=' flex justify-center items-start flex-1' >
-					<Tablero ref={tableroRef} currentPlayer={currentPlayer} callbackMove={makeMove} />
-				</div>
+    <main className="w-screen h-screen flex justify-center items-center p-0 md:p-10">
+			<header></header>
+			<div className=' flex justify-center items-start flex-1' >
+				<Tablero ref={tableroRef} currentPlayer={currentPlayer} callbackMove={makeMove} />
 			</div>
 		</main>
 	)

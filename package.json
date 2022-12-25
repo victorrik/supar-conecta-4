@@ -1,11 +1,12 @@
 {
   "name": "supar-conecta-4",
   "private": true,
-  "version": "0.0.1-pr2",
+  "version": "0.0.1-pr3",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
+		"buildDeploy": "vite build && firebase deploy --only hosting:supar-conecta-4",
     "preview": "vite preview"
   },
   "dependencies": {
