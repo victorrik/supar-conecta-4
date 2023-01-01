@@ -1,81 +1,75 @@
 //@ts-check
-// import { PureComponent } from 'react'
+import { useEffect } from "react";
+import { useRef } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useState,
+} from "react";
 
-// type DaProps = {
-//   autoStart?: boolean ; // like this
-// 	start?:any,
-// 	stop?:any,
-// 	reset?:any,
-// 	getTime?:any
-// }; 
-// type State = {
-//   time: number; // like this
-// }; 
+/**
+ *
+ *
+ * @typedef  {{
+ * autoStart?: boolean,
+ * showMilli?: boolean
+ * }} StopWatchProps
+ */
+const StopWatch = forwardRef(
+  (
+    /**  @type {StopWatchProps}  */ { autoStart, showMilli },
+    ref
+  ) => {
+    /**  @type {import('react').MutableRefObject<NodeJS.Timer|null>}  */
+    const interval = useRef(null);
+    const [time, setTime] = useState(0);
+    useEffect(() => {
+      if (autoStart) {
+        start();
+      }
+    }, []);
 
-// class StopWatch extends PureComponent<DaProps> {
-// 	interval:any = null;
-// 	state:State = {
-// 		time:0
-//  }
-// 	constructor(props:DaProps) {
-// 		super(props)
-// 		this.start = this.start.bind(this);
-// 		this.stop = this.stop.bind(this);
-// 		this.reset = this.reset.bind(this);
-// 		this.getTime = this.getTime.bind(this);
-// 	}
-// 	componentDidMount(){
-// 		if (this.props.autoStart) {
-// 			this.start();
-// 		}
-// 	}
-// 	componentWillUnmount(){
-// 		if (this.interval) {
-// 			clearInterval(this.interval)
-// 		}
-// 	}
-// 	start():void{
-// 		this.interval = setInterval(() => {
-// 			this.setState({time:this.state.time + 10})
-// 		}, 10);
-// 	}
-// 	stop():void{
-// 		clearInterval(this.interval); 
-// 	}
-// 	reset():void{
-// 		clearInterval(this.interval); 
-// 		this.setState({time:0});
-// 		this.interval = setInterval(() => {
-// 			this.setState({time:this.state.time + 10})
-// 		}, 10);
-// 	}
-// 	getTime():number{
-// 		return this.state.time
-// 	}
-// 	render() {
-// 		return (
-// 			<div className="stopwatch">
-// 				<div className="numbers">
-// 					<div><i>{("0" + Math.floor((this.state.time / 60000) % 60)).slice(-2)}</i></div>
-// 					<span>:</span>
-// 					<div><i>{("0" + Math.floor((this.state.time / 1000) % 60)).slice(-2)}</i></div>
-// 					<span>:</span>
-// 					<div><i>{("0" + ((this.state.time / 10) % 100)).slice(-2)}</i></div>
-// 				</div>
-// 			</div>
-// 		)
-// 	}
-// }
- 
+    useImperativeHandle(ref, () => ({
+      start,
+      stop,
+      reset,
+    }));
 
-// export default StopWatch
+    const start = () => {
+      interval.current = setInterval(() => {
+        setTime((t) => t + 10);
+      }, 10);
+    };
+    const stop = () => {
+      clearTimer();
+    };
+    const clearTimer = () => {
+      if (interval.current) {
+        clearInterval(interval.current);
+      }
+    };
+    const reset = () => {
+      clearTimer();
+      setTime(0);
+      start();
+    };
+    const getTime = () => {
+      return time;
+    };
+    return (
+      <div className="text-center font-mono text-3xl text-white">
+        <span>
+					{("0" + Math.floor((time / 60000) % 60)).slice(-2)}: 
+					{("0" + Math.floor((time / 1000) % 60)).slice(-2)}
+					{showMilli && (
+						<>:
+							<i className="text-2xl" >{("0" + ((time / 10) % 100)).slice(-2)}</i>{" "}
+						</>
+					)}
+				</span>
+      </div>
+    );
+  }
+);
 
-
-
-const StopWatch = () => {
-	return (
-		<div>StopWatch</div>
-	)
-}
-
-export default StopWatch
+export default StopWatch;

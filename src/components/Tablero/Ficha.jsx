@@ -17,20 +17,17 @@ const Ficha  = ({player,onClick,coords }) => {
 	const handleColumn = (evento) => {
 		/**  @type {HTMLElement}  */ 
 		const targetElement = evento.target
-		const column = document.getElementById("p-hover");
+		const column = document.getElementById("back-column");
 		if (column) {
 			column.style.left = `${targetElement.offsetLeft}px`
 		}
-		// for (let i = 0; i < 6; i++) {
-		// 	document.getElementById(`${i}-${x}`)?.classList.toggle("bg-blue-chill-500")
-		// }
 	}
 	
 	return(
 		<div id={coords.y+'-'+coords.x}
 			data-row={coords.y}
 			data-col={coords.x}
-			className="transition-all p-1 sm:p-2 z-[1]"
+			className="transition-all p-1 sm:p-2 z-[1] rounded-full"
 			onMouseEnter={handleColumn}
 			onMouseLeave={handleColumn}
 			>

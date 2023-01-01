@@ -1,3 +1,20 @@
+## 0.0.1-pr4 - 31-12-2022
+- Se siguieron haciendo cambios intentando comprender el principio SOLID
+- Se hizo deploy del juego modo local
+- Ya tiene imagen para cuando se comparte la pagina uwu
+
+### Added
+- Metodo para verificar si de forma esquineada en ambos sentidos
+- Identificador de los colores bases al tailwind.config
+- La logica del juego en local
+- Componete Scoreboard para mostrar la puntuacion y los jugadores
+- Componete Modal para mas adelante
+- Estilos al button con relacion a los colores que manejo
+
+### Changed
+- Se movieron los metodos del tablero para una mejor visualizacion
+- Se cambio la manera en como se hace la evaluacion para revisar el tablero y saber si hay ganador
+
 ## 0.0.1-pr3 - 24-12-2022
 - Se siguio modificando los estilos y se empezo a ver como hacer el subdomino
 

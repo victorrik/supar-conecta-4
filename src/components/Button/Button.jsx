@@ -10,10 +10,10 @@ import ActivityIndicator from "../ActivityIndicator";
  */
 
 const typesStyles  = {
-	primary: "bg-cyan-500 hover:bg-cyan-400",
-	secundary: "bg-slate-700 hover:bg-slate-500",
-	danger: "bg-red-500",
-	disabled: "bg-gray-300",
+	primary: "bg-caribbean-green-600 hover:bg-caribbean-green-500",
+	secundary: "bg-golden-tainoi-500 hover:bg-golden-tainoi-400",
+	danger: "bg-french-rose-700 hover:bg-french-rose-600",
+	disabled: "bg-slate-300",
 	link: "bg-transparent text-cyan-400 underline",
 };
 
